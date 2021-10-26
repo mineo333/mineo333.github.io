@@ -7,7 +7,7 @@ Hello! My name is Sharad Khanna (I go by mineo333 on the interwebs, but either o
 
 As you might imagine, my interests in tech mainly encompass cybersecurity topics. Currently, my main interests include Linux kernel explotation, RE, and OS development in general.
 
-Currently, I'm working on my QogChamp rootkit which is a rootkit which attempts to use novel techniques to exploit the kernel. This includes all kinds of crazy shit like page caches, overwriting the network driver DMA buffers, among other things. 
+Currently, I'm working on my QogChamp rootkit which is a rootkit which attempts to use novel techniques to exploit the Linux kernel. This includes all kinds of crazy shit like page caches, overwriting the network driver DMA buffers, among other things. 
 
 I hope to use this blog to talk about this rootkit as well as other topics that interest me.
 
