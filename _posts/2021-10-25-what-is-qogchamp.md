@@ -1,6 +1,6 @@
 ---
 title: What is QogChamp?
-date: 2021-10-26 00:00:00 -0500
+date: 2021-10-26
 categories: [QogChamp]
 tags: [Kernel Exploitation]
 ---
