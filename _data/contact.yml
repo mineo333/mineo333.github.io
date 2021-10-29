@@ -28,3 +28,7 @@
   type: stack-overflow
   icon: 'fab fa-stack-overflow'
   url:  'https://stackoverflow.com/users/8877217/sharad-khanna'                  # Fill with your stackoverflow homepage
+#-
+#  type: discord
+#  icon: 'fab fa-discord' 
+#  url:  'https://stackoverflow.com/users/8877217/sharad-khanna'

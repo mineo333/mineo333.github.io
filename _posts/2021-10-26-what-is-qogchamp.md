@@ -2,7 +2,7 @@
 title: What is QogChamp?
 date: 2021-10-26 13:46:00
 categories: [QogChamp]
-tags: [Kernel Exploitation]
+tags: [Linux Kernel Exploitation]
 ---
 So, the primary reason I made this blog was to document and discuss the logic and code behind my rootkit: QogChamp. In this post, I want to answer the simple question: What is QogChamp?
 
@@ -38,4 +38,4 @@ In fact, if you go to the VERY old branch - `working_vuln` - you will find the o
 
 ## What's next?
 
-Over the next few posts, I hope to delve deep into the history of QogChamp as well as explaining what it does and how it gets it done. This entire series will most likely be a combination of story telling as well as technical explanation. 
+Over the next few posts, I hope to delve deep into the history of QogChamp as well as explaining what it does and how it gets it done. This entire series will most likely be a combination of story telling as well as technical explanation on the inner workings of QogChamp.

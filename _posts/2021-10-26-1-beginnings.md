@@ -2,7 +2,7 @@
 title: 1 - Beginnings
 date: 2021-10-26 16:30:00
 categories: [QogChamp]
-tags: [Kernel Exploitation, syscall]
+tags: [Linux Kernel Exploitation, Syscall]
 ---
 In this post, I hope to tell you about how QogChamp started out and what the original codebase looked like. This will be a fairly brief post and won't get too much into the codebase as the functions used in the original codebase are not used anymore in the current implementation of the rootkit.
 
