@@ -2,7 +2,7 @@
 title: 2 - Paging in the Linux Kernel
 date: 2021-10-29 12:30:00
 categories: [QogChamp]
-tags: [Linux Kernel Exploitation, Paging]
+tags: [Linux Kernel Exploitation, Paging, MM]
 ---
 
 Before I begin discussing the internals of the QogChamp exploit, I first need to discuss how the Linux kernel handles paging. 
@@ -39,10 +39,6 @@ The third and final level of paging is the PTE. The PTE contains a 12-bit aligne
 The last 12 bits of a linear address are used to search through the 4 KiB page frame.
 
 Another thing that you might notice is that in every paging data structure, the last 12 bits have a bunch of entries. These are known as flags and contain information about the state of the PTE. The one flag that concerns us is the dirty flag (Marked as D). The dirty flag being 1 signifies that the page has been written to. 
-
-## What's next
-
-From here, I will try to explain the page cache and how it functions as well as the syscalls that will be important. 
 
 ## Paging in the Kernel
 
@@ -128,6 +124,10 @@ The final field is `private`. The `private` field is only set if the `PG_private
 The next two fields within `struct page` of importance are `_mapcount` and `_refcount`. `_refcount` is exactly what is sounds like - the number of references that are held to the `struct page`. Typically, this is increased and decreased via the `get_page` and `put_page` functions respectively. 
 
 `_mapcount` on the other hand is a counter of how many times the page has been mapped to userspace (i.e. how many page tables the page is in). Put simply, `_refcount` is the number of references held to the `struct page` and `_mapcount` is the number of virtual references held to the page. These two variables are often used by the page eviction code to see when a page is safe to evict. These two fields will not be of too great importance, but I felt that I should mention them because they are such ubiquitous variables.
+
+## What's next
+
+From here, I will try to explain the page cache and how it functions as well as the syscalls that will be important. 
 
 ## References
 Page walk image - Intel Developer Manual Volume 3A page 4-20
