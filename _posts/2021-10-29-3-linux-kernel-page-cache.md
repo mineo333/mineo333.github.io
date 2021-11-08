@@ -7,7 +7,7 @@ tags: [Linux Kernel Exploitation, Page Cache]
 One of QogChamp's capabilities is performing "ghost file operations" or file operations that are easy to clean up and have little to no footprint. The page cache is the main structure used to pull this off. 
 
 
-## What is a page cache?
+## What is a Page Cache?
 As you might know, block devices (Disks/SSDs) are EXTREMELY slow compared to RAM and CPU. 
 
 Now, this is a big problem, especially for read/write operations, as every time a program wants to read/write to/from a file, it needs to wait for the disk to complete the operation. This, due to the slow nature of the block devices, can burn CPU cycles and force programs to block for extended periods while waiting for the disk to complete. In the long run, this is bad and can greatly extend the runtime of certain programs that perform file operations (So basically, almost every program). 
