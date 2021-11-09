@@ -18,9 +18,9 @@ A common question that might follow from this is if we're doing all our file ope
 
 To sync changes, the Linux Kernel undergoes a process known as deferred write. With deferred write, the kernel waits until a good time to actually sync the changes with the disk. This is much faster than writing back immediately for one main reason: it allows us to do async IO. 
 
-Assuming that the user is not doing async IO, when a syscall like `write()` returns, the caller expects the buffer to be written to the disk. Therefore, if we are not using a page cache, we would have the wait to write to the disk to complete, which can often be extremely slow. By using the page cache, we can give the user the illusion that the buffer was written to the disk via page cache (Which is much faster), and later, we can asynchronously write it back to the disk. We can return control more quickly to the user program without giving up functionality, thus making the page cache a very fast and powerful method.
+Assuming that the user is not doing async IO, when a syscall like `write()` returns, the caller expects the buffer to be written to the disk. Therefore, if we are not using a page cache, we would have to wait for the write to the disk to complete, which can often be extremely slow. By using the page cache, we can give the user the illusion that the buffer was written to the disk via page cache (Which is much faster), and later, we can asynchronously write it back to the disk. Thus, we can return control more quickly to the user program in cases like `write()` without giving up any functionality, thus making the page cache a very fast and powerful method.
 
-However, there are issues with the page cache. Because changes are written back later, those changes could be sitting in memory, unsynced for long periods. This can cause issues as if a computer crash occurs at an inopportune time, changes could be lost. Because of this, many programs like databases that cannot afford this loss of data use `sync()` frequently or use the `O_DIRECT` flag when writing, which starts writeback immediately. 
+However, there are issues with the page cache. Because changes are written back to the disk later, those changes could be sitting in memory, unsynced for long periods. This can cause issues as if a computer crash occurs at an inopportune time, changes could be lost. Because of this, many programs like databases that cannot afford this loss of data use `sync()` frequently or use the `O_DIRECT` flag when writing, both of which start writeback immediately. 
 
 The nature of deferred write is immensely important for Qogchamp and is something that I will get into when discussing mmap.
 
@@ -64,10 +64,10 @@ In order to better demonstrate how `struct address_space` works with other Linux
 
 ![Page Cache](/assets/img/3/page_cache.jpeg)
 
-In the picture, the `struct page`s are from `i_pages` and these `struct page`s are mapped into various VMAs throughout the system. These various VMAs also contain `struct file`s which then point back to the `struct address_space`.
+In the picture, the `struct page` pointers are stored in `i_pages` and these `struct page`s are mapped into various VMAs throughout the system. These various VMAs also contain `struct file`s which then point back to the `struct address_space`.
 
 ## What's Next
-From here, I want to go into how exactly `read`, `write`, and `mmap` work as the knowledge gained from deeply studying these three syscalls will be critical in understanding how exactly this exploit works. 
+From here, I want to go into how exactly `read`, `write`, `mmap`, and `sync` work as the knowledge gained from deeply studying these three syscalls will be critical in understanding how exactly this exploit works. 
 
 ## References
 Information on Page Cache - <https://courses.cs.vt.edu/~cs5204/fall15-gback/>
