@@ -10,7 +10,7 @@ Through this post, I hope to answer some very basic questions about its name, it
 
 ## What is QogChamp?
 
-QogChamp is a novel Linux kernel rootkit that aims to utilize innovative exploits in order to accomplish goals with more power, more effectively, or with a lesser footprint.
+QogChamp is a novel Linux kernel rootkit built for the 5.14 Linux Kernel that aims to utilize innovative exploits in order to accomplish goals with more power, more effectively, or with a lesser footprint.
 
 ## Why is it called QogChamp?
 

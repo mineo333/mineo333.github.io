@@ -11,4 +11,4 @@ Currently, I'm working on my QogChamp rootkit, which attempts to use novel techn
 
 I hope to use this blog to talk about this rootkit as well as other topics that interest me.
 
-If you want to catch me, by far the best place is discord. My discord is: `write(1,"mineo333",8);#3385`. Otherwise, my email is <sharadkhanna@yahoo.com>, or if you're feeling really spicy, you can email me at <slk8351@g.rit.edu> (I will probably respond here faster).
+If you want to catch me, by far the best place is discord. My discord is: `write(1,"mineo333",8);#3385`. Otherwise, my email is <skhanna1202@gmail.com>, or if you're feeling really spicy, you can email me at <slk8351@g.rit.edu> (I will probably respond here faster).

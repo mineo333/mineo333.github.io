@@ -25,7 +25,9 @@ However, there are issues with the page cache. Because changes are written back 
 The nature of deferred write is immensely important for Qogchamp and is something that I will get into when discussing mmap.
 
 ## address_space
-As we discussed in the last post, the main structure used to handle the page cache is `struct address_space`. Let's go into more detail into what the structure contains. 
+As we discussed in the last post, the main structure used to handle the page cache is `struct address_space`. Yes this is an awful name as it has nothing to do with an address spaces (That is instead delegated to `vm_area_struct`), but it's what we have. 
+
+Let's go into more detail into what the structure contains. 
 
 ```C
 struct address_space {
