@@ -107,7 +107,7 @@ As you might have realized, Linux employs a very modular system when it comes to
 
 ## What's Next
 
-From here, we are going to discuss how `PAGECACHE_TAG_DIRTY` is set by discussing, `mmap`, `write`, and page faulting. 
+From here, we are going to discuss how `PAGECACHE_TAG_DIRTY` is set by discussing `mmap`, `write`, and page faulting. 
 
 
 ## References
