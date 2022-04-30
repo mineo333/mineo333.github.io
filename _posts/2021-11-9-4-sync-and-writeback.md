@@ -74,7 +74,11 @@ In `tag_pages_for_writeback`, the kernel essentially searches through the page c
 
 There are two questions posed from this. First, why do this? The main reason for doing this is written in the documentation for `tag_pages_for_writeback`. We do this additional marking in order to prevent livelocking, which could be caused by a process writing to the pages as we're trying to do the writeback. Second, where does the `PAGECACHE_TAG_DIRTY` tag come from, and when is it set? This is the answer to this question that holds the key to why QogChamp works. This topic will be discussed further as we discuss the `mmap` and `write` implementations. 
 
-Once `tag_pages_for_writeback` returns, it can be assumed that all the pages ready for writeback are tagged and ready to go. From here, it's just a matter of iterating through the pages and sending them on their way to the disk. To writeback, the code does three checks:
+Once `tag_pages_for_writeback` returns, it can be assumed that all the pages ready for writeback are tagged and ready to go. From here, it's just a matter of iterating through the pages and sending them on their way to the disk.
+
+In order to iterate through the pages, we create a `pagevec`. This `pagevec` is then populated with the pages that we need to write back to the disk via `pagevec_lookup_range_tag`. With this, we have everything we need to writeback.
+
+To writeback, the code does three checks:
 
 1. It checks if the page has been truncated under us. If so, then leave because a truncated page cannot be written back. This is accomplished by checking if the `address_space` associated with the page is still valid. 
 
