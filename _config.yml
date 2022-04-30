@@ -18,12 +18,12 @@ timezone: America/New-York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: mineo333                          # the main title
+title: mineo333/Sharad Khanna                         # the main title
 
 tagline: constantly in need of sleep  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Incoherent ramblings about kernel exploitation, OS development, RE, and other random things I want to talk about
+  My thoughts on the Linux Kernel, kernel exploitation, binary exploitation, and other topics.
                     
   
 
@@ -39,7 +39,7 @@ github:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: mineo333
+  name: mineo333/Sharad Khanna 
   email: sharad@mineo333.dev            # change to your email address
   links:
     # The first element serves as the copyright owner's link

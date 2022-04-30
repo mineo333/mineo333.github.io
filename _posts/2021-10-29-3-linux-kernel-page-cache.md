@@ -1,5 +1,5 @@
 ---
-title: 3 - Linux Kernel Page Cache
+title: Linux Kernel Page Cache
 date: 2021-11-8 15:40:00
 categories: [QogChamp]
 tags: [Linux Kernel Exploitation, Page Cache]
@@ -29,7 +29,7 @@ As we discussed in the last post, the main structure used to handle the page cac
 
 Let's go into more detail into what the structure contains. 
 
-```C
+```c
 struct address_space {
 	struct inode		*host;
 	struct xarray		i_pages;
@@ -58,7 +58,9 @@ Above is the `struct address_space` from the 5.14 Linux Kernel. There are a few 
 
  The next field of importance is `i_pages`. `i_pages` is a special kind of array (Don't ask me how. That's beyond me) that contains pointers to `struct page`s. These `struct page`s are the descriptors for the pages that are the in-memory representation of the file. In other words, this is the meat of the page cache. By kmapping the `struct page` pointers from `i_pages`, you will get direct access to the in-memory representation of the file. This is critical to getting the exploit to work.
 
- To traverse the `struct xarray`, there are a suite functions in [xarray.h](https://elixir.bootlin.com/linux/latest/source/include/linux/xarray.h) that are available. These functions are used throughout the page cache code. 
+ To traverse the `struct xarray`, there are a suite functions in [xarray.h](https://elixir.bootlin.com/linux/latest/source/include/linux/xarray.h) that are available. These functions are used throughout the page cache code.
+
+ The third field of importance is `i_mmap`. `i_mmap` is a rb-interval tree which contains every `vm_area_struct` that maps this particular inode. For the Linux Kernel, this serves as the "rmap" or reverse mapping for file-backed mappings. In the Linux Kernel, every `struct page` has a pointer to every pte that maps that particular `struct page`. In other words, if given a `struct page`, I can find every pte that maps the contents of that `struct page` For anonymous pages, it is the `anon_vma` and for file-backed mappings it is `address_space -> i_mmap`. We will see this field come up when we discuss mmap.
 
  The last field that is important is `const struct address_space_operations *a_ops`. If you're familiar with the Linux Kernel, this should be a familiar sight. This struct contains the "member functions" of the `address_space` object - yes, member functions in the same sense as Java. We will continually revisit this function as we discuss specific syscalls.
 

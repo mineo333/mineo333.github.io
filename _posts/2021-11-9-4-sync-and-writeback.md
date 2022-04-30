@@ -1,5 +1,5 @@
 ---
-title: 4 - sync and Writeback
+title: sync and Writeback
 date: 2021-11-20 22:40:00
 categories: [QogChamp]
 tags: [Linux Kernel Exploitation, Syscall]

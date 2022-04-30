@@ -1,5 +1,5 @@
 ---
-title: 2 - Paging in the Linux Kernel
+title: Paging in the Linux Kernel
 date: 2021-10-29 12:30:00
 categories: [QogChamp]
 tags: [Linux Kernel Exploitation, Paging, MM]
@@ -57,7 +57,7 @@ This is an unsigned 64 bit integer that contains the flags of a given page. The 
 
 The possible flags that can go into `unsigned long flags` are detailed in `page-flags.h`. Below I have listed a shortlist of all the possible flags, but if you're interested in the current flags that a page can have please check it out [here](https://elixir.bootlin.com/linux/latest/source/include/linux/page-flags.h).
 
-```C
+```c
 enum pageflags {
 	PG_locked,		/* Page is locked. Don't touch. */
 	PG_referenced,
@@ -96,7 +96,7 @@ The fifth bit is `PG_writeback`. `PG_writeback` represents pages that are curren
 The sixth bit of importance is `PG_locked`. Contrary to what it sounds like, `PG_locked` does not lock the actual memory that the `struct page` describes. Rather, it is a lock on the fields in a `struct page`. Thus, any process wanting to modify a `struct page` should hold the lock, and this flag should be set.
 
 The next field (Or set of fields rather) is the anonymous struct that contains the page cache information:
-```C
+```c
 struct {	/* Page cache and anonymous pages */
 			/**
 			 * @lru: Pageout list, eg. active_list protected by

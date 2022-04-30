@@ -1,5 +1,5 @@
 ---
-title: 1 - Beginnings
+title: Beginnings
 date: 2021-10-26 16:30:00
 categories: [QogChamp]
 tags: [Linux Kernel Exploitation, Syscall]
