@@ -1,7 +1,7 @@
 ---
 title: About
 icon: fas fa-info-circle
-order: 4
+order: 5
 ---
 Hello! My name is Sharad Khanna (I go by mineo333 on the interwebs, but either one works). I'm currently a freshman at Rochester Institute of Technology in the Computing Security program. 
 
