@@ -3,7 +3,7 @@ title: About
 icon: fas fa-info-circle
 order: 4
 ---
-Hello! My name is Sharad Khanna (I go by mineo333 on the interwebs, but either one works). I'm currently a freshman at Rochester Institute of Technology in the Computing Security program. 
+Hello! My name is Sharad Khanna (I go by mineo333 on the interwebs, but either one works). I'm currently a Sophomore at Rochester Institute of Technology in the Computing Security program. 
 
 As you might imagine, my interests in tech mainly encompass cybersecurity topics. Currently, my main interests include Linux kernel exploitation, RE, and OS development in general.
 
